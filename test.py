@@ -18,6 +18,8 @@ R3 = Radiobutton(root, text="Option 3", variable=var, value=3,
                   command=sel)
 R3.pack( anchor = W)
 
+print(var)
+
 label = Label(root)
 label.pack()
 root.mainloop()

@@ -18,6 +18,20 @@ url = 'https://www.ebay.com.au/b/Coffee/185036/bn_99762518?rt=nc&_sop=10'
 coffee_page = urlopen(url)
     # Extract the web page's content as a Unicode string
 html1_code1 = coffee_page.read().decode('UTF-8')
+
+
+instore_today_thing =0
+oldstock_onorder_thing=0
+
+def call_product_function():
+    if instore_today_thing == 1:
+        product1()
+    elif instore_today_thing == 2:
+        product2()
+
+
+
+
 def product1():
     # Define url for the live web document
     url = 'https://www.ebay.com.au/b/Coffee/185036/bn_99762518?rt=nc&_sop=10'
@@ -237,6 +251,9 @@ del jp[4:6]
 #Fuction to display the top 5 products in box_1
 
 def displaybox_1():
+    global instore_today_thing
+    instore_today_thing = 1
+    # print(instore_today_thing)
     box_1.delete('1.0', END)
     box_1.insert(END,'Coffee:')
     #order the items in a list
@@ -245,6 +262,8 @@ def displaybox_1():
     box_1.insert(END,f"\n\nhttps://www.ebay.com.au/b/Coffee/185036/bn_99762518?rt=nc&_sop=10")
 
 def displaybox_2():
+    global instore_today_thing
+    instore_today_thing = 2
     box_1.delete('1.0', END)
     box_1.insert(END,'Games and Toys:')
     #order the items in a list
@@ -309,7 +328,7 @@ online_shopping=PhotoImage(file='logo1.gif')
 
 #create a button widgets for parent container
 the_button1=Button(pan_window,text='Show images',font=('Arial',10),
-                   fg='green',command=product1)
+                   fg='green',command=call_product_function)
 the_button2=Button(pan_window,text='Add products to cart',
                    font=('Arial',10),fg='green',command=shopper_choice)
 the_button3=Button(pan_window,text='Submit order',
@@ -341,8 +360,7 @@ oldstock_onorder=LabelFrame(pan_window,relief='groove',
                          text='Old stock on order',fg='navy blue')
 
 #Create radiobutton for the items
-instore_today_thing =0
-oldstock_onorder_thing=0
+
 radio_button1=Radiobutton(instore_today,text='Coffee',value=1,
                           variable=instore_today_thing,
                           font=('Arial',10),fg='green',command=displaybox_1)
