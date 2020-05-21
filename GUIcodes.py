@@ -309,7 +309,7 @@ online_shopping=PhotoImage(file='logo1.gif')
 
 #create a button widgets for parent container
 the_button1=Button(pan_window,text='Show images',font=('Arial',10),
-                   fg='green',command=generate_page)
+                   fg='green',command=product1)
 the_button2=Button(pan_window,text='Add products to cart',
                    font=('Arial',10),fg='green',command=shopper_choice)
 the_button3=Button(pan_window,text='Submit order',
