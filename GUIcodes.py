@@ -28,6 +28,10 @@ def call_product_function():
         product1()
     elif instore_today_thing == 2:
         product2()
+    elif instore_today_thing == 3:
+        product3()
+    elif instore_today_thing == 4:
+        product4()
 
 
 
@@ -272,6 +276,8 @@ def displaybox_2():
     box_1.insert(END,f"\n\nhttps://www.dealnews.com/c186/Gaming-Toys/?sort=time")
 
 def displaybox_3():
+    global instore_today_thing
+    instore_today_thing = 3
     box_1.delete('1.0', END)
     box_1.insert(END,'Vintage Rugs:')
     #order the items in a list
@@ -280,6 +286,8 @@ def displaybox_3():
     box_1.insert(END,f"\n\nhttps://www.persianrugs.com.au/vintage-rugs")
     
 def displaybox_4():
+    global instore_today_thing
+    instore_today_thing = 4
     box_1.delete('1.0', END)
     box_1.insert(END,'Jigsaw Puzzles:')
     #order the items in a list
@@ -369,10 +377,10 @@ radio_button2=Radiobutton(instore_today,text='Games & Toys',value=2,
                           variable=instore_today_thing,
                           font=('Arial',10),fg='green',command=displaybox_2)
 radio_button3=Radiobutton(oldstock_onorder,text='Vintage Rugs',value=3,
-                          variable=oldstock_onorder_thing,
+                          variable=instore_today_thing,
                           font=('Arial',10),fg='green',command=displaybox_3)
 radio_button4=Radiobutton(oldstock_onorder,text='Jigsaw puzzles',value=4,
-                          variable=oldstock_onorder_thing,
+                          variable=instore_today_thing,
                           font=('Arial',10),fg='green',command=displaybox_4)
 
 #Create 2 text area to display the list
